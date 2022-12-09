@@ -1,0 +1,16 @@
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color:black !important;
+
+}
+
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: white;
+}
+
+::ng-deep .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: #f44336;
+}
+
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: white;
+}

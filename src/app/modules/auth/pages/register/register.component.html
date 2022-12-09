@@ -1,0 +1,46 @@
+<div class="w-screen h-screen sm:w-96 sm:h-128 bg-slate-600 p-8">
+  <div class="mb-8">
+    <h4 class="text-center font-semibold text-2xl text-white">Create an account</h4>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="handleSubmit()">
+    <div>
+      <div class="text-gray-400 font-medium">
+        Email
+        <span class="text-rose-500">*</span>
+      </div>
+      <mat-form-field class="w-full mt-2">
+        <input matInput formControlName="email" type="text" required />
+        <mat-error *ngIf="email?.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="email?.hasError('email')">
+          Email isn't valid. Please enter a valid email.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <div class="text-gray-400 font-medium">
+        Password
+        <span class="text-rose-500">*</span>
+      </div>
+      <mat-form-field class="w-full mt-2">
+        <input matInput formControlName="password" type="password" required />
+        <mat-error *ngIf="password?.hasError('required')">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button [disabled]="isLoading" type="submit" class="w-full p-4 mt-6" mat-raised-button color="primary">
+        <fa-icon [icon]="faSpinner" [spin]="true" *ngIf="isLoading"></fa-icon>
+        Sign up
+      </button>
+      <div class="text-center text-gray-400 text-sm mt-2">
+        <span>Do you have an account ?</span>
+        <a class="ml-2 text-blue-500" [routerLink]="['/auth/login']">Sign in</a>
+      </div>
+    </div>
+  </form>
+</div>
